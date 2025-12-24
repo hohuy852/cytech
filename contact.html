@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== Meta ===== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.svg">
+
+    <!-- ===== Title ===== -->
+    <title>Stag - Personal Portfolio HTML5 Template (Cyberpunk Ed.)</title>
+    <link href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css" rel="stylesheet">
+    
+    <!-- ===== LineAwesome ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" referrerpolicy="no-referrer" />
+
+
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- ADDED: Cyberpunk Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- ===== Stylesheet ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/effect.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- ADDED: GSAP & Custom Cyberpunk Styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <main class="contact-page" id="top">
+
+        <!-- Sticky Sidebar
+        ======================================= -->
+        <div class="sticky-sidebar">
+            <div class="sticky-sidebar-inner">
+                <div class="sidebar-top">
+                    <div class="sidebar-logo">
+                        <div class="left">
+                            <a href="index.html" class="logo-img">
+                                <img src="assets/imgs/logo.svg" alt="Logo">
+                            </a>
+                            <a href="index.html" class="logo-text glitch-hover">PORTFOLIO</a>
+                        </div>
+                        <div class="right">
+                            <span id="current-time"></span>
+                            <i class="las la-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-me">
+                        <div class="sidebar-me-inner">
+                            <div class="img-box">
+                                <img src="assets/imgs/me.png" alt="Me">
+                            </div>
+                            <div class="content">
+                                <h3 class="glitch-hover">Ho Sy Huy</h3>
+                                <p>Front end Developer</p>
+                                <span class="location"><i class="ph-duotone ph-map-pin"></i> Ho Chi Minh City</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-menu">
+                        <nav class="menu-lists">
+                            <ul>
+                                <li>
+                                    <a href="index.html"><span class="icon"><i class="ph-duotone ph-house"></i></span> <span class="title">Home</span></a>
+                                </li>
+                                <li>
+                                    <a href="projects.html"><span class="icon"><i class="ph-duotone ph-squares-four"></i></span> <span class="title">Projects</span></a>
+                                </li>
+                                <li>
+                                    <a href="about.html"><span class="icon"><i class="ph-duotone ph-fingerprint"></i></span> <span class="title">About</span></a>
+                                </li>
+                                <li>
+                                    <a href="gallery.html"><span class="icon"><i class="ph-duotone ph-camera"></i></span> <span class="title">Gallery</span></a>
+                                </li>
+                                <li class="active-menu">
+                                    <a href="contact.html"><span class="icon"><i class="ph-duotone ph-paperclip"></i></span> <span class="title">Contact</span></a>
+                                </li>
+                                <li>
+                                    <a href="blog.html"><span class="icon"><i class="ph-duotone ph-swatches"></i></span> <span class="title">Blog</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="responsive-mode sidebar-bottom">
+                            <div class="social-link-wrap">
+                                <ul class="social-links">
+                                    <li><a href="https://dribbble.com/"><i class="lab la-dribbble"></i></a></li>
+                                    <li><a href="https://twitter.com"><i class="lab la-xing"></i></a></li>
+                                    <li><a href="https://instagram.com"><i class="lab la-instagram"></i></a></li>
+                                    <li><a href="https://youtube.com/"><i class="lab la-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                            <p class="copyright-text">
+                                &copy; 2024
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="humberg-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-bottom">
+                    <div class="social-link-wrap">
+                        <ul class="social-links">
+                            <li><a href="https://dribbble.com/"><i class="lab la-dribbble"></i></a></li>
+                            <li><a href="https://twitter.com"><i class="lab la-xing"></i></a></li>
+                            <li><a href="https://instagram.com"><i class="lab la-instagram"></i></a></li>
+                            <li><a href="https://youtube.com/"><i class="lab la-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <p class="copyright-text">
+                        &copy; 2024
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- End Sticky Sidebar -->
+
+
+        <div class="page-content-wrapper">
+
+
+            <!-- Newsletter
+            ======================================= -->
+            <section class="newsletter-area">
+                <div class="custom-container">
+                    <div class="newsletter-header section-header gs-reveal">
+                        <h4 class="common-box subtitle">
+                            Stay up to date
+                        </h4>
+                        <div class="animation-texts-wrap">
+                            <div class="animation-text-inner" style="-webkit-text-stroke: 1px rgba(0, 243, 255, 0.3);">
+                                <ul>
+                                    <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="assets/mail/subscribe.php" method="POST" id="subscribe-form" class="gs-reveal">
+                        <div class="newsletter-box">
+                            <input type="email" name="email" placeholder="Your email" style="background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(0,243,255,0.3);">
+                            <button type="submit" class="theme-btn">Book an appointment with me</button>
+                        </div>
+                        <p class="text-base text-gray-400" style="margin-top: 12px;" id="result1"></p>
+                    </form>
+
+
+                    <div class="project-experience-wrap">
+                        <div class="project-experience gs-reveal">
+                            <h2 class="glitch-hover" style="color: var(--neon-blue);">12+</h2>
+                            <p>Years of experience</p>
+                            <div class="icon">
+                                <img src="assets/imgs/leaf.png" alt="icon">
+                            </div>
+                        </div>
+                        <div class="project-experience gs-reveal">
+                            <h2 class="glitch-hover" style="color: var(--neon-blue);">100+</h2>
+                            <p>Completed Projects</p>
+                            <div class="icon">
+                                <img src="assets/imgs/tree-1.png" alt="icon">
+                            </div>
+                        </div>
+                        <div class="project-experience gs-reveal">
+                            <h2 class="glitch-hover" style="color: var(--neon-blue);">$16M</h2>
+                            <p>Partners Raised</p>
+                            <div class="icon">
+                                <img src="assets/imgs/tree-2.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- End Newsletter -->
+
+
+            <!-- Contact
+            ======================================= -->
+            <section class="contact-area">
+                <div class="custom-container">
+                    <div class="contact-header section-header gs-reveal">
+                        <h4 class="subtitle common-box">Contact</h4>
+
+                        <div class="animation-texts-wrap">
+                            <div class="animation-text-inner" style="-webkit-text-stroke: 1px rgba(0, 243, 255, 0.3);">
+                                <ul>
+                                    <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-inner gs-reveal">
+                        <div class="contact-form">
+                            <form id="ajax-form" action="assets/mail/contact.php" method="POST">
+                                <input type="hidden" name="access_key" value="0ea6f02e-35e1-4bc8-801a-f700e7c5a95c">
+                                <input type="hidden" name="subject">
+
+                                <input type="text" name="name" placeholder="Name" style="background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(0,243,255,0.3);">
+                                <input type="email" placeholder="Email" name="email" style="background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(0,243,255,0.3);">
+                                <textarea name="message" id="message" placeholder="Message" style="background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(0,243,255,0.3);"></textarea>
+                                <button type="submit" class="theme-btn">Submit</button>
+                                <p class="text-base text-gray-400" style="margin-top: 12px;" id="result"></p>
+                            </form>
+                        </div>
+
+                        <div class="contact-infos">
+                            <h4 class="subtitle common-box">
+                                Address
+                            </h4>
+                            <ul>
+                                <li>
+                                    <div class="icon" style="color: var(--neon-blue);">
+                                        <i class="lar la-map"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3>Visit Me</h3>
+                                        <p>Phu Nhuan District Ho Chi Minh City <br>
+                                            Viet Nam</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon" style="color: var(--neon-blue);">
+                                         <i class="las la-headphones"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3>Contact Info</h3>
+                                        <p>
+                                            <a href="tel:++84377324542" style="color: var(--neon-pink);">+84377324542</a>
+                                        </p>
+                                        <p><a href="mailto:syhuy851@mail.com" style="color: var(--neon-pink);">syhuy851@mail.com</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- End Contact -->
+
+
+            <!-- Footer
+            ======================================= -->
+            <footer class="footer-area">
+                <div class="left">
+                    <p>&copy; 2024 All rights reserved</p>
+                   
+                    
+                </div>
+                <a href="#top" class="backto-top theme-btn">Scroll to top <i class="las la-arrow-up"></i></a>
+            </footer>
+            <!-- End Footer -->
+
+        </div>
+
+    </main>
+
+
+    <!-- JQuery
+    ======================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script>
+
+    <script src="assets/js/jquery-3.7.1.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/ajaxform.js"></script>
+    <script src="assets/js/subscribe-form.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

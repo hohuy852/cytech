@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== Meta ===== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.svg">
+
+    <!-- ===== Title ===== -->
+    <title>Stag - Personal Portfolio HTML5 Template (Cyberpunk Ed.)</title>
+    <link href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css" rel="stylesheet">
+    
+    <!-- ===== LineAwesome ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" referrerpolicy="no-referrer" />
+
+
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- ADDED: Cyberpunk Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- ===== Stylesheet ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/effect.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- ADDED: GSAP & Custom Cyberpunk Styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <main class="about-page" id="top">
+
+        <!-- Sticky Sidebar
+        ======================================= -->
+        <div class="sticky-sidebar">
+            <div class="sticky-sidebar-inner">
+                <div class="sidebar-top">
+                    <div class="sidebar-logo">
+                        <div class="left">
+                            <a href="index.html" class="logo-img">
+                                <img src="assets/imgs/logo.svg" alt="Logo">
+                            </a>
+                            <a href="index.html" class="logo-text glitch-hover">PORTFOLIO</a>
+                        </div>
+                        <div class="right">
+                            <span id="current-time"></span>
+                            <i class="las la-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-me">
+                        <div class="sidebar-me-inner">
+                            <div class="img-box">
+                                <img src="assets/imgs/me.png" alt="Me">
+                            </div>
+                            <div class="content">
+                                <h3 class="glitch-hover">Ho Sy Huy</h3>
+                                <p>Front end Developer</p>
+                                <span class="location"><i class="ph-duotone ph-map-pin"></i> Ho Chi Minh City</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-menu">
+                        <nav class="menu-lists">
+                            <ul>
+                                <li>
+                                    <a href="index.html"><span class="icon"><i class="ph-duotone ph-house"></i></span> <span class="title">Home</span></a>
+                                </li>
+                                <li>
+                                    <a href="projects.html"><span class="icon"><i class="ph-duotone ph-squares-four"></i></span> <span class="title">Projects</span></a>
+                                </li>
+                                <li class="active-menu">
+                                    <a href="about.html"><span class="icon"><i class="ph-duotone ph-fingerprint"></i></span> <span class="title">About</span></a>
+                                </li>
+                                <li>
+                                    <a href="gallery.html"><span class="icon"><i class="ph-duotone ph-camera"></i></span> <span class="title">Gallery</span></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html"><span class="icon"><i class="ph-duotone ph-paperclip"></i></span> <span class="title">Contact</span></a>
+                                </li>
+                                <li>
+                                    <a href="blog.html"><span class="icon"><i class="ph-duotone ph-swatches"></i></span> <span class="title">Blog</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="responsive-mode sidebar-bottom">
+                            <div class="social-link-wrap">
+                                <ul class="social-links">
+                                    <li><a href="https://dribbble.com/"><i class="lab la-dribbble"></i></a></li>
+                                    <li><a href="https://twitter.com"><i class="lab la-xing"></i></a></li>
+                                    <li><a href="https://instagram.com"><i class="lab la-instagram"></i></a></li>
+                                    <li><a href="https://youtube.com"><i class="lab la-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                            <p class="copyright-text">
+                                &copy; 2024
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="humberg-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-bottom">
+                    <div class="social-link-wrap">
+                        <ul class="social-links">
+                            <li><a href="https://dribbble.com/"><i class="lab la-dribbble"></i></a></li>
+                            <li><a href="https://twitter.com"><i class="lab la-xing"></i></a></li>
+                            <li><a href="https://instagram.com"><i class="lab la-instagram"></i></a></li>
+                            <li><a href="https://youtube.com"><i class="lab la-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <p class="copyright-text">
+                        &copy; 2024
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- End Sticky Sidebar -->
+
+
+        <div class="page-content-wrapper">
+
+            <!-- Hero
+            ======================================= -->
+            <section class="hero-area hero2-area">
+                <div class="custom-container">
+                    <div class="hero-content-top">
+                        <div class="available-link-wrap">
+                            <a href="#" class="available-link common-box">
+                                <span class="online-dot" style="background: var(--neon-yellow); box-shadow: 0 0 5px var(--neon-yellow);"></span>
+                                Available for freelance work
+                            </a>
+                        </div>
+                        <a target="_blank" class="resume-download" href="../../assets/MRmCy0gi8if2CkEIEbq7nCHJ88.pdf" download="yourfilename.pdf">
+                            <span class="common-box">
+                                <i class="las la-file-download"></i>
+                            </span>
+                            Download Resume / Curriculum Vitae
+                        </a>
+
+                        <span class="time common-box">
+                            <i class="ph ph-clock"></i> <span id="datetime"></span>
+                        </span>
+
+                        <a href="contact.html" class="theme-btn common-box">
+                            <span>
+                                <span class="normal">Contact Me <i class="las la-arrow-right"></i></span>
+                                <span class="hover">Contact Me <i class="las la-arrow-right"></i></span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="custom-row">
+                        <!-- <div class="hero-img">
+                            <img src="assets/imgs/hero-2.png" alt="Hero">
+                        </div> -->
+
+                        <div class="hero-content-right">
+
+                            <div class="hero-content-bottom">
+                                <div class="hero-content common-box" style="border-left: 3px solid var(--neon-blue);">
+                                    <span>A WEB DEVELOPER</span>
+                                    <h1 class="glitch-hover">Ho Sy Huy 👋🏽</h1>
+                                    <p>Hi there! I'm Huy, a passionate frontend and WordPress developer with over a year of hands-on experience in crafting engaging and user-friendly websites. My journey into web development began with a curiosity for building interactive digital experiences, and it has evolved into a rewarding career where I continuously strive to enhance my skills and deliver exceptional results.</p>
+                                    <img src="assets/imgs/signeture.svg" alt="Signeture" class="signeture" style="filter: invert(1);">
+                                </div>
+                                <div class="hero-map-wrap about-podcast">
+                                    <div class="hero-map-top">
+                                        <span class="subtitle common-box">Twitter</span>
+                                    </div>
+
+                                    <div class="twitter-feed">
+                                        <iframe src="https://platform.twitter.com/embed/Tweet.html?dnt=false&embedId=twitter-widget-0&features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&frame=false&hideCard=false&hideThread=false&id=1755607423816278106&lang=en&origin=https%3A%2F%2Ftwitter.com&sessionId=cf4de54b08fcc2624e64936e98f4da68a7af4e9f&theme=dark&widgetsVersion=2615f7e52b7e0%3A1702314776716&width=550px" scrolling="no" allowtransparency="true" allowfullscreen="true" title="X Post" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Hero -->
+
+
+
+            <!-- Education & Experience
+            ======================================= -->
+            <section class="edc-and-exp-area">
+                <div class="custom-container">
+                    <div class="edc-and-exp-inner">
+                        <div class="edc-and-exp-inner-box edc-wrap gs-reveal">
+                            <h4 class="subtitle common-box">Education</h4>
+
+                            <div class="edc-and-exp-lists">
+                                <div class="edc-and-exp-box">
+                                    <div class="img-box">
+                                        <img src="assets/imgs/edc-1.png" alt="Education">
+                                    </div>
+                                    <div class="content">
+                                        <span class="date" style="color: var(--neon-pink);">2018 - 2022</span>
+                                        <h3><a href="#" class="glitch-hover">Ho Chi Minh City University of Transport</a></h3>
+                                        <p>Infomation Technology</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="edc-and-exp-inner-box exp-wrap gs-reveal">
+                            <h4 class="subtitle common-box">Experience</h4>
+
+                            <div class="edc-and-exp-lists">
+                                <div class="edc-and-exp-box">
+                                    <div class="img-box">
+                                        <img src="assets/imgs/exp-1.png" alt="Education">
+                                    </div>
+                                    <div class="content">
+                                        <span class="date" style="color: var(--neon-pink);">12/2019 - 04/2020</span>
+                                        <h3><a href="#" class="glitch-hover">Quality Control</a></h3>
+                                        <p> Studynow Vietnam, Ltd</p>
+                                    </div>
+                                </div>
+                                <div class="edc-and-exp-box">
+                                    <div class="img-box">
+                                        <img src="assets/imgs/exp-2.png" alt="Education">
+                                    </div>
+                                    <div class="content">
+                                        <span class="date" style="color: var(--neon-pink);">03/2022 - 06/2022</span>
+                                        <h3><a href="#" class="glitch-hover"> Front-end Developer Intern</a></h3>
+                                        <p> Cozwork JSC</p>
+                                    </div>
+                                </div>
+                                <div class="edc-and-exp-box">
+                                    <div class="img-box">
+                                        <img src="assets/imgs/exp-3.png" alt="Education">
+                                    </div>
+                                    <div class="content">
+                                        <span class="date" style="color: var(--neon-pink);">11/2022 - Present</span>
+                                        <h3><a href="#" class="glitch-hover"> Wordpress Developer</a></h3>
+                                        <p>Allgrow Labo, Ltd</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Education & Experience -->
+
+
+            <!-- Partner
+            ======================================= -->
+            <section class="partner-area">
+                <div class="custom-container">
+                    <div class="partner-header section-header gs-reveal">
+                        <h4 class="common-box subtitle">
+                            Partners
+                        </h4>
+                        <div class="animation-texts-wrap">
+                            <div class="animation-text-inner">
+                                <ul style="-webkit-text-stroke: 1px rgba(0, 243, 255, 0.3);">
+                                    <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="partner-slider-wrap">
+                        <div class="partner-slider-inner">
+                            <ul>
+                                <li class="common-box"><img src="assets/imgs/client-1.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-2.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-3.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-4.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-5.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-6.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-7.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-8.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-1.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-2.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-3.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-4.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-5.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-6.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-7.png" alt="Client"></li>
+                                <li class="common-box"><img src="assets/imgs/client-8.png" alt="Client"></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-experience-wrap">
+                        <div class="project-experience gs-reveal">
+                            <h2 class="glitch-hover" style="color: var(--neon-blue);">12+</h2>
+                            <p>Years of experience</p>
+                        </div>
+                        <div class="project-experience gs-reveal">
+                            <h2 class="glitch-hover" style="color: var(--neon-blue);">100+</h2>
+                            <p>Completed Projects</p>
+                        </div>
+                        <div class="project-experience gs-reveal">
+                            <h2 class="glitch-hover" style="color: var(--neon-blue);">$16M</h2>
+                            <p>Partners Raised</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Partner -->
+
+
+            <!-- Service
+            ======================================= -->
+            <section class="service-area">
+                <div class="custom-container">
+
+                    <div class="service-header section-header gs-reveal">
+                        <h4 class="common-box subtitle">
+                            Services
+                        </h4>
+                        <div class="animation-texts-wrap">
+                            <div class="animation-text-inner">
+                                <ul style="-webkit-text-stroke: 1px rgba(0, 243, 255, 0.3);">
+                                    <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-lists">
+                        <div class="service-box gs-item">
+                            <a href="contact.html" class="overlay-link"></a>
+                            <h3><a href="contact.html" class="glitch-hover">Website Design</a></h3>
+                            <p>I created digital products with unique ideas use Illustrator </p>
+                            <span style="color: var(--neon-pink);">5 PROJECTS</span>
+                            <div class="icon" style="color: var(--neon-blue);">
+                                <i class="ph ph-paint-brush"></i>
+                            </div>
+                        </div>
+                        <div class="service-box gs-item">
+                            <a href="contact.html" class="overlay-link"></a>
+                            <h3><a href="contact.html" class="glitch-hover">Website Development</a></h3>
+                            <p>I build website go live with Wordpress, ReactJS, VueJS </p>
+                            <span style="color: var(--neon-pink);">26+ PROJECTS</span>
+                            <div class="icon" style="color: var(--neon-blue);">
+                                <i class="ph ph-code"></i>
+                            </div>
+                        </div>
+                        <div class="service-box gs-item">
+                            <a href="contact.html" class="overlay-link"></a>
+                            <h3><a href="contact.html" class="glitch-hover">SEO</a></h3>
+                            <p>I SEO websites to the top Google search results </p>
+                            <span style="color: var(--neon-pink);">26+ PROJECTS</span>
+                            <div class="icon" style="color: var(--neon-blue);">
+                                <i class="ph ph-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- End Service -->
+            
+            <!-- Start Stack
+            ======================================= -->
+            <section class="stack-area">
+                <div class="custom-container">
+                    <div class="stack-header section-header gs-reveal">
+                        <h4 class="common-box subtitle">
+                            Stack
+                        </h4>
+                        <div class="animation-texts-wrap">
+                            <div class="animation-text-inner">
+                                <ul style="-webkit-text-stroke: 1px rgba(0, 243, 255, 0.3);">
+                                    <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack-lists">
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-1.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">Wordpress</a></h3>
+                                <p>Start you dream sith with AI. Zero code, Maximum Speed.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-2.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">ReactJS</a></h3>
+                                <p>Hyper is an electron based terminal Application.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-3.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">VueJS</a></h3>
+                                <p>The best privacy policy online network.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-4.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">Javascript</a></h3>
+                                <p>Pure writing pleasure with in your hands.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-5.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">Typescript</a></h3>
+                                <p>The fastest Email Experience ever made.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-6.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">HTML</a></h3>
+                                <p>Write better tweets. Grow your audience.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-7.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">CSS</a></h3>
+                                <p>Write better tweets. Grow your audience.</p>
+                            </div>
+                        </div>
+                        <div class="edc-and-exp-box stack-box gs-item">
+                            <div class="img-box">
+                                <img src="assets/imgs/stack-8.svg" alt="Stack">
+                            </div>
+                            <div class="content">
+                                <h3><a href="#" class="glitch-hover">PHP</a></h3>
+                                <p>Write better tweets. Grow your audience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Stack -->
+
+
+            <!-- Start Newsletter
+            ======================================= -->
+            <section class="newsletter-area">
+                <div class="custom-container">
+                    <div class="newsletter-header section-header gs-reveal">
+                        <h4 class="common-box subtitle">
+                            Stay up to date
+                        </h4>
+                        <div class="animation-texts-wrap">
+                            <div class="animation-text-inner">
+                                <ul style="-webkit-text-stroke: 1px rgba(0, 243, 255, 0.3);">
+                                    <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                    <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="assets/mail/subscribe.php" method="POST" id="subscribe-form">
+                        <div class="newsletter-box">
+                            <input type="email" name="email" placeholder="Your email" style="background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(0,243,255,0.3);">
+                            <button type="submit" class="theme-btn">Book an appointment with me</button>
+                        </div>
+                        <p class="text-base text-gray-400" style="margin-top: 12px;" id="result1"></p>
+                    </form>
+
+                </div>
+            </section>
+            <!-- End Newsletter -->
+
+
+
+            <!-- Footer
+            ======================================= -->
+            <footer class="footer-area">
+                <div class="left">
+                    <p>&copy; 2024 All rights reserved</p>
+                   
+                    
+                </div>
+                <a href="#top" class="backto-top theme-btn">Scroll to top <i class="las la-arrow-up"></i></a>
+            </footer>
+            <!-- End Footer -->
+
+        </div>
+
+    </main>
+
+
+    <!-- JQuery
+    ======================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script>
+
+    <script src="assets/js/jquery-3.7.1.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/subscribe-form.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

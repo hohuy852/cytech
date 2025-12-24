@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk UI Component Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Font Awesome cho icon copy -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff0099;
+            --neon-yellow: #fcee0a;
+            --neon-red: #ff003c;
+            --neon-green: #0aff0a;
+            --bg-dark: #050505;
+            --panel-bg: rgba(20, 20, 20, 0.95);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e0e0e0;
+            font-family: 'Share Tech Mono', monospace;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- GRID LAYOUT --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 Cột */
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .grid-container { grid-template-columns: 1fr; } }
+
+        /* --- COMPONENT CARD --- */
+        .component-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 4px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+            min-height: 250px;
+        }
+
+        .component-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+
+        .preview-area {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            overflow: hidden; /* Tránh tràn layout */
+            position: relative;
+        }
+
+        /* --- COPY BUTTONS --- */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .copy-btn {
+            flex: 1;
+            background: transparent;
+            border: 1px solid #444;
+            color: #888;
+            padding: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            background: rgba(0, 243, 255, 0.05);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* =========================================
+           COMPONENT STYLES (To be copied)
+           ========================================= */
+
+        /* 1. WARNING STRIPE */
+        .cyber-warning-stripe {
+            width: 100%;
+            height: 20px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--neon-yellow),
+                var(--neon-yellow) 10px,
+                #000 10px,
+                #000 20px
+            );
+            box-shadow: 0 0 10px rgba(252, 238, 10, 0.5);
+            animation: stripe-run 2s linear infinite;
+        }
+        @keyframes stripe-run {
+            from { background-position: 0 0; }
+            to { background-position: 28px 0; }
+        }
+
+        /* 2. NEON TEXT BLUE */
+        .neon-text-blue {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-blue),
+                0 0 40px var(--neon-blue);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* 3. NEON TEXT PINK */
+        .neon-text-pink {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px var(--neon-pink),
+                0 0 20px var(--neon-pink),
+                0 0 40px var(--neon-pink);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* 4. ALERT: ACCESS DENIED (ENHANCED) */
+        .alert-box-red {
+            border: 2px solid var(--neon-red);
+            color: var(--neon-red);
+            padding: 20px 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: 
+                linear-gradient(45deg, transparent 5%, var(--neon-red) 5%, var(--neon-red) 10%, transparent 10%),
+                rgba(255, 0, 60, 0.1);
+            background-size: 10px 10px; /* Small stripes */
+            box-shadow: 
+                inset 0 0 20px rgba(255, 0, 60, 0.5), 
+                0 0 15px var(--neon-red);
+            text-shadow: 2px 0 #000, -1px 0 #000, 0 0 10px var(--neon-red);
+            position: relative;
+            letter-spacing: 3px;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            animation: red-pulse 2s infinite;
+        }
+        
+        .alert-box-red::before {
+            content: '⚠️ SECURITY BREACH';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            color: var(--neon-red);
+            font-size: 0.7rem;
+            padding: 0 5px;
+            border: 1px solid var(--neon-red);
+            box-shadow: 0 0 5px var(--neon-red);
+        }
+
+        @keyframes red-pulse {
+            0%, 100% { box-shadow: inset 0 0 20px rgba(255, 0, 60, 0.5), 0 0 10px var(--neon-red); opacity: 1; }
+            50% { box-shadow: inset 0 0 30px rgba(255, 0, 60, 0.8), 0 0 20px var(--neon-red); opacity: 0.8; }
+        }
+
+        /* 5. ALERT: ACCESS GRANTED (ENHANCED) */
+        .alert-box-green {
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 20px 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: relative;
+            background: rgba(10, 255, 10, 0.05);
+            box-shadow: 0 0 15px rgba(10, 255, 10, 0.3), inset 0 0 20px rgba(10, 255, 10, 0.1);
+            overflow: hidden;
+            letter-spacing: 3px;
+        }
+        
+        .alert-box-green::before {
+            content: 'ACCESS GRANTED';
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        /* Scanning Beam Effect */
+        .alert-box-green::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(10, 255, 10, 0.5), transparent);
+            transform: skewX(-20deg);
+            animation: scan-pass 2s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes scan-pass {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        /* 6. GLITCH BUTTON */
+        .cyber-btn-glitch {
+            position: relative;
+            padding: 10px 30px;
+            background: transparent;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.2s;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        .cyber-btn-glitch:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+        .cyber-btn-glitch::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        .cyber-btn-glitch:hover::before { left: 100%; }
+
+        /* 7. HOLOGRAM LOADER */
+        .holo-loader {
+            width: 50px;
+            height: 50px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--neon-blue);
+            border-right: 2px solid var(--neon-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 8. SYSTEM STATUS */
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--neon-yellow);
+            font-size: 0.9rem;
+        }
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--neon-yellow);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-yellow);
+            animation: pulse-dot 0.5s infinite alternate;
+        }
+        @keyframes pulse-dot {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* 9. DECODE TEXT EFFECT (Static CSS Demo) */
+        .decode-text span {
+            display: inline-block;
+            animation: decode-flicker 0.1s infinite;
+        }
+        @keyframes decode-flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* 10. SCANNER LINE */
+        .scanner-box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--neon-blue);
+            position: relative;
+            background: rgba(0, 243, 255, 0.1);
+            overflow: hidden;
+        }
+        .scanner-line {
+            width: 100%;
+            height: 2px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+            position: absolute;
+            top: 0;
+            animation: scan-vertical 2s linear infinite;
+        }
+        @keyframes scan-vertical {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* 11. CORNER BORDER BOX */
+        .corner-box {
+            padding: 15px;
+            border: 1px solid transparent;
+            position: relative;
+            color: var(--neon-blue);
+        }
+        .corner-box::before, .corner-box::after {
+            content: '';
+            position: absolute;
+            width: 10px; height: 10px;
+            border: 2px solid var(--neon-blue);
+            transition: all 0.3s;
+        }
+        .corner-box::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+        .corner-box::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+        .corner-box:hover::before, .corner-box:hover::after {
+            width: 100%; height: 100%;
+        }
+
+        /* 12. GLITCH IMAGE CONTAINER */
+        .glitch-img-container {
+            width: 100px;
+            height: 60px;
+            background: #222;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.8rem;
+        }
+        .glitch-img-container:hover {
+            animation: shake-box 0.2s infinite;
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+        }
+        @keyframes shake-box {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-2px, 2px); }
+            50% { transform: translate(2px, -2px); }
+            75% { transform: translate(-2px, -2px); }
+            100% { transform: translate(0, 0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Cyberpunk UI Component Kit</h1>
+
+    <div class="grid-container">
+
+        <!-- 1. WARNING STRIPE -->
+        <div class="component-card">
+            <div class="card-title">01. Warning Stripe</div>
+            <div class="preview-area">
+                <div class="cyber-warning-stripe"></div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='cyber-warning-stripe'></div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.cyber-warning-stripe`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 2. NEON TEXT BLUE -->
+        <div class="component-card">
+            <div class="card-title">02. Neon Text (Blue)</div>
+            <div class="preview-area">
+                <div class="neon-text-blue">CYBERPUNK</div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='neon-text-blue'>CYBERPUNK</div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.neon-text-blue`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 3. NEON TEXT PINK -->
+        <div class="component-card">
+            <div class="card-title">03. Neon Text (Pink)</div>
+            <div class="preview-area">
+                <div class="neon-text-pink">NIGHT CITY</div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='neon-text-pink'>NIGHT CITY</div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.neon-text-pink`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 4. ACCESS DENIED -->
+        <div class="component-card">
+            <div class="card-title">04. Alert: Denied (HUD)</div>
+            <div class="preview-area">
+                <div class="alert-box-red">DENIED</div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='alert-box-red'>DENIED</div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.alert-box-red`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 5. ACCESS GRANTED -->
+        <div class="component-card">
+            <div class="card-title">05. Alert: Granted (Scan)</div>
+            <div class="preview-area">
+                <div class="alert-box-green"></div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='alert-box-green'></div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.alert-box-green`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 6. GLITCH BUTTON -->
+        <div class="component-card">
+            <div class="card-title">06. Glitch Button</div>
+            <div class="preview-area">
+                <button class="cyber-btn-glitch">INITIALIZE</button>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<button class='cyber-btn-glitch'>INITIALIZE</button>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.cyber-btn-glitch`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 7. HOLOGRAM LOADER -->
+        <div class="component-card">
+            <div class="card-title">07. Holo Loader</div>
+            <div class="preview-area">
+                <div class="holo-loader"></div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='holo-loader'></div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.holo-loader`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 8. SYSTEM STATUS -->
+        <div class="component-card">
+            <div class="card-title">08. System Status</div>
+            <div class="preview-area">
+                <div class="system-status">
+                    <div class="status-dot"></div>
+                    <span>SYSTEM UNSTABLE</span>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='system-status'><div class='status-dot'></div><span>SYSTEM UNSTABLE</span></div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.system-status`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 9. DECODE TEXT PLACEHOLDER -->
+        <div class="component-card">
+            <div class="card-title">09. Decode Text</div>
+            <div class="preview-area">
+                <div class="decode-text" style="color: var(--neon-blue);">
+                    &gt; _<span style="opacity:0.5">XF8</span><span style="opacity:0.8">9A</span>...
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='decode-text'>&gt; _DECODING...</div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.decode-text`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 10. SCANNER BOX -->
+        <div class="component-card">
+            <div class="card-title">10. Scanner Box</div>
+            <div class="preview-area">
+                <div class="scanner-box">
+                    <div class="scanner-line"></div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='scanner-box'><div class='scanner-line'></div></div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.scanner-box`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 11. CORNER BORDER -->
+        <div class="component-card">
+            <div class="card-title">11. Corner Border</div>
+            <div class="preview-area">
+                <div class="corner-box">HOVER ME</div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='corner-box'>CONTENT</div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.corner-box`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+        <!-- 12. GLITCH IMAGE CONTAINER -->
+        <div class="component-card">
+            <div class="card-title">12. Glitch Box (Hover)</div>
+            <div class="preview-area">
+                <div class="glitch-img-container">IMG_404</div>
+            </div>
+            <div class="action-buttons">
+                <button class="copy-btn" onclick="copyHTML(this, `<div class='glitch-img-container'>IMG</div>`)"><i class="fa-regular fa-copy"></i> HTML</button>
+                <button class="copy-btn" onclick="copyCSS(this, `.glitch-img-container`)"><i class="fa-brands fa-css3"></i> CSS</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT COPY FUNCTION -->
+    <script>
+        // Database CSS Rules (Simplified for demo extraction)
+        const cssRules = {
+            ".cyber-warning-stripe": `
+.cyber-warning-stripe {
+    width: 100%; height: 20px;
+    background: repeating-linear-gradient(45deg, #fcee0a, #fcee0a 10px, #000 10px, #000 20px);
+    box-shadow: 0 0 10px rgba(252, 238, 10, 0.5);
+    animation: stripe-run 2s linear infinite;
+}
+@keyframes stripe-run { from { background-position: 0 0; } to { background-position: 28px 0; } }`,
+            
+            ".neon-text-blue": `
+.neon-text-blue {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 40px #00f3ff;
+    font-family: 'Share Tech Mono', monospace;
+}`,
+            
+            ".neon-text-pink": `
+.neon-text-pink {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff0099, 0 0 20px #ff0099, 0 0 40px #ff0099;
+    font-family: 'Share Tech Mono', monospace;
+}`,
+
+            ".alert-box-red": `
+.alert-box-red {
+    border: 2px solid #ff003c; color: #ff003c; padding: 20px 40px;
+    text-transform: uppercase; font-weight: bold; font-size: 1.2rem;
+    background: linear-gradient(45deg, transparent 5%, #ff003c 5%, #ff003c 10%, transparent 10%), rgba(255, 0, 60, 0.1);
+    background-size: 10px 10px;
+    box-shadow: inset 0 0 20px rgba(255, 0, 60, 0.5), 0 0 15px #ff003c;
+    text-shadow: 2px 0 #000, -1px 0 #000, 0 0 10px #ff003c;
+    position: relative; letter-spacing: 3px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    animation: red-pulse 2s infinite;
+}
+.alert-box-red::before {
+    content: '⚠️ SECURITY BREACH'; position: absolute; top: -12px; left: 20px;
+    background: #050505; color: #ff003c; font-size: 0.7rem; padding: 0 5px;
+    border: 1px solid #ff003c; box-shadow: 0 0 5px #ff003c;
+}
+@keyframes red-pulse {
+    0%, 100% { box-shadow: inset 0 0 20px rgba(255, 0, 60, 0.5), 0 0 10px #ff003c; opacity: 1; }
+    50% { box-shadow: inset 0 0 30px rgba(255, 0, 60, 0.8), 0 0 20px #ff003c; opacity: 0.8; }
+}`,
+
+            ".alert-box-green": `
+.alert-box-green {
+    border: 2px solid #0aff0a; color: #0aff0a; padding: 20px 40px;
+    text-transform: uppercase; font-weight: bold; font-size: 1.2rem;
+    position: relative; background: rgba(10, 255, 10, 0.05);
+    box-shadow: 0 0 15px rgba(10, 255, 10, 0.3), inset 0 0 20px rgba(10, 255, 10, 0.1);
+    overflow: hidden; letter-spacing: 3px;
+}
+.alert-box-green::before {
+    content: 'ACCESS GRANTED'; position: relative; z-index: 2;
+    text-shadow: 0 0 5px #0aff0a;
+}
+.alert-box-green::after {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(10, 255, 10, 0.5), transparent);
+    transform: skewX(-20deg);
+    animation: scan-pass 2s infinite ease-in-out;
+    z-index: 1;
+}
+@keyframes scan-pass { 0% { left: -100%; } 100% { left: 200%; } }`,
+
+            ".cyber-btn-glitch": `
+.cyber-btn-glitch {
+    position: relative; padding: 10px 30px; background: transparent;
+    color: #00f3ff; border: 1px solid #00f3ff;
+    text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+    overflow: hidden; transition: 0.2s;
+    font-family: 'Share Tech Mono', monospace;
+}
+.cyber-btn-glitch:hover { background: #00f3ff; color: #000; box-shadow: 0 0 20px #00f3ff; }
+.cyber-btn-glitch::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+.cyber-btn-glitch:hover::before { left: 100%; }`,
+
+            ".holo-loader": `
+.holo-loader {
+    width: 50px; height: 50px; border: 2px solid transparent;
+    border-top: 2px solid #00f3ff; border-right: 2px solid #00f3ff;
+    border-radius: 50%; animation: spin 1s linear infinite;
+    box-shadow: 0 0 10px #00f3ff;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`,
+
+            ".system-status": `
+.system-status { display: flex; align-items: center; gap: 10px; color: #fcee0a; }
+.status-dot {
+    width: 10px; height: 10px; background: #fcee0a; border-radius: 50%;
+    box-shadow: 0 0 10px #fcee0a; animation: pulse-dot 0.5s infinite alternate;
+}
+@keyframes pulse-dot { from { opacity: 1; transform: scale(1); } to { opacity: 0.5; transform: scale(0.8); } }`,
+
+            ".decode-text": `
+.decode-text { font-family: 'Share Tech Mono', monospace; animation: decode-flicker 0.1s infinite; }
+@keyframes decode-flicker { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }`,
+
+            ".scanner-box": `
+.scanner-box {
+    width: 100px; height: 100px; border: 1px solid #00f3ff; position: relative;
+    background: rgba(0, 243, 255, 0.1); overflow: hidden;
+}
+.scanner-line {
+    width: 100%; height: 2px; background: #00f3ff; box-shadow: 0 0 10px #00f3ff;
+    position: absolute; top: 0; animation: scan-vertical 2s linear infinite;
+}
+@keyframes scan-vertical { 0% { top: 0; } 100% { top: 100%; } }`,
+
+            ".corner-box": `
+.corner-box {
+    padding: 15px; border: 1px solid transparent; position: relative; color: #00f3ff;
+}
+.corner-box::before, .corner-box::after {
+    content: ''; position: absolute; width: 10px; height: 10px;
+    border: 2px solid #00f3ff; transition: all 0.3s;
+}
+.corner-box::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+.corner-box::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+.corner-box:hover::before, .corner-box:hover::after { width: 100%; height: 100%; }`,
+
+            ".glitch-img-container": `
+.glitch-img-container:hover {
+    animation: shake-box 0.2s infinite; border: 1px solid #ff003c; color: #ff003c;
+}
+@keyframes shake-box {
+    0% { transform: translate(0, 0); } 25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); } 75% { transform: translate(-2px, -2px); }
+    100% { transform: translate(0, 0); }
+}`
+        };
+
+        function copyHTML(btn, html) {
+            navigator.clipboard.writeText(html).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => btn.innerHTML = originalText, 2000);
+            });
+        }
+
+        function copyCSS(btn, selector) {
+            const css = cssRules[selector] || "/* CSS not found */";
+            navigator.clipboard.writeText(css.trim()).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => btn.innerHTML = originalText, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

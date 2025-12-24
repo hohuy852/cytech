@@ -1,0 +1,208 @@
+/* =========================================
+   CYBERPUNK THEME OVERRIDES
+   ========================================= */
+
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff0099; /* Hot Pink - Modern Cyberpunk */
+    --neon-purple: #bc13fe; /* Added for gradient depth */
+    --neon-yellow: #fcee0a;
+    --dark-bg: #0b0b0b;
+    --panel-bg: rgba(20, 20, 20, 0.95);
+}
+
+/* --- 1. Global Atmosphere --- */
+body {
+    background-color: var(--dark-bg);
+    color: #e0e0e0;
+}
+
+/* Scanlines Overlay */
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+}
+
+/* Vignette (Tối góc) */
+.vignette {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle, transparent 60%, black 100%);
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.6;
+}
+
+/* --- 2. Typography Tech-up --- */
+h1, h2, h3, h4, .logo-text, .subtitle, .menu-lists .title {
+    font-family: 'Share Tech Mono', monospace !important;
+    letter-spacing: 0.05em;
+}
+
+/* --- 3. Button Tech Style (Ghi đè .theme-btn) --- */
+.theme-btn {
+    border-radius: 0 !important;
+    border: 1px solid var(--neon-blue) !important;
+    background: rgba(0, 243, 255, 0.05) !important;
+    position: relative;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: all 0.3s ease;
+    color: var(--neon-blue) !important;
+    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+.theme-btn:hover {
+    background: var(--neon-blue) !important;
+    color: #000 !important;
+    box-shadow: 0 0 20px var(--neon-blue), inset 0 0 5px rgba(255,255,255,0.5);
+    text-shadow: none;
+}
+
+.theme-btn i {
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover i {
+    transform: translateX(3px);
+}
+
+/* --- 4. Sidebar & Boxes Enhancement --- */
+.sticky-sidebar {
+    border-right: 1px solid rgba(0, 243, 255, 0.2);
+    background: var(--panel-bg);
+    box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+}
+
+.common-box, .project-slider-box, .service-box, .edc-and-exp-box, .blog-box {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    position: relative;
+    border-color: transparent; /* Ẩn viền mặc định để hiệu ứng nhấp nháy rõ hơn */
+}
+
+/* Keyframes cho hiệu ứng nhấp nháy viền 2 lần */
+@keyframes double-blink {
+    0% { border-color: var(--neon-blue); }
+    25% { border-color: transparent; }
+    50% { border-color: var(--neon-blue); }
+    75% { border-color: transparent; }
+    100% { border-color: var(--neon-blue); }
+}
+
+@keyframes double-blink-yellow {
+    0% { border-color: var(--neon-yellow); }
+    25% { border-color: transparent; }
+    50% { border-color: var(--neon-yellow); }
+    75% { border-color: transparent; }
+    100% { border-color: var(--neon-yellow); }
+}
+
+/* Áp dụng hiệu ứng nhấp nháy viền 2 lần khi hover */
+.common-box:hover, .project-slider-box:hover, .service-box:hover {
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.15), inset 0 0 20px rgba(0, 243, 255, 0.05);
+    transform: translateY(-2px);
+    /* Animation chạy 0.4s và dừng lại ở trạng thái cuối cùng (forwards) */
+    animation: double-blink 0.4s ease-in-out forwards; 
+}
+
+.blog-box:hover {
+    box-shadow: 0 0 15px rgba(252, 238, 10, 0.15); /* Yellow shadow */
+    transform: translateY(-2px);
+    animation: double-blink-yellow 0.4s ease-in-out forwards;
+}
+
+
+/* --- 5. Glitch Text Effect on Hover --- */
+.glitch-hover:hover {
+    color: #fff !important;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px var(--neon-pink),
+        0 0 20px var(--neon-pink),
+        0 0 40px var(--neon-pink),
+        0 0 80px var(--neon-purple), 
+        2px 0 var(--neon-blue), 
+        -2px 0 var(--neon-yellow);
+    transition: text-shadow 0.2s ease, color 0.2s ease;
+}
+
+/* --- 6. Image Effects --- */
+.img-box img, .project-img img, .blog-box img {
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Keyframes rung lắc ảnh (Chromatic Aberration) - Chỉ chạy 2 lần */
+@keyframes chromatic-anim-2x {
+    0% { transform: translate(0, 0); text-shadow: 2px 0 var(--neon-blue); }
+    20% { transform: translate(-2px, 1px); }
+    40% { transform: translate(1px, -1px); }
+    60% { transform: translate(-1px, 2px); }
+    80% { transform: translate(2px, -1px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Hiệu ứng Chromatic Aberration & Shake cho Project/Profile - CHẠY 2 LẦN */
+.img-box:hover img, .project-img:hover img {
+    filter: contrast(1.2) brightness(1.1);
+    animation: chromatic-anim-2x 0.2s 2 alternate; /* Chạy 2 lần (iteration-count: 2) */
+}
+
+/* Hiệu ứng Blog giữ nguyên (chỉ sáng lên, không rung) */
+.blog-box:hover img {
+    filter: contrast(1.1) brightness(1.1) drop-shadow(0 0 10px var(--neon-yellow)); 
+    transform: scale(1.02); 
+    animation: none; 
+}
+
+/* --- 7. Custom Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-pink); }
+
+/* --- 8. Menu Lists Styling --- */
+.menu-lists ul {
+    border-left: 1px solid rgba(255, 255, 255, 0.1); /* Thin guideline */
+    margin-left: 10px;
+    padding-left: 0;
+}
+
+.menu-lists li a {
+    position: relative;
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
+    color: rgba(255, 255, 255, 0.6) !important; /* Mờ mặc định */
+    padding-left: 15px;
+}
+
+.menu-lists li a:hover {
+    color: var(--neon-pink) !important;
+    border-left-color: var(--neon-pink);
+    background: linear-gradient(90deg, rgba(255, 0, 153, 0.1), transparent);
+    text-shadow: 0 0 8px var(--neon-pink);
+    padding-left: 20px; /* Di chuyển nhẹ khi hover */
+}
+
+.menu-lists li.active-menu a {
+    color: var(--neon-blue) !important;
+    border-left: 2px solid var(--neon-blue);
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.15), transparent);
+    box-shadow: inset 5px 0 10px -5px rgba(0, 243, 255, 0.5);
+    text-shadow: 0 0 5px var(--neon-blue);
+    padding-left: 20px;
+}
+
+.menu-lists li a span.icon { 
+    color: inherit !important; 
+    transition: transform 0.3s;
+}
+
+.menu-lists li a:hover span.icon {
+    transform: scale(1.2); /* Icon phóng to khi hover */
+}
